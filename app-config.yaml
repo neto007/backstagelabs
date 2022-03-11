@@ -27,9 +27,9 @@ backend:
   database:
     client: pg
     connection:
-      host: ${POSTGRES_HOST}
+      host: ${POSTGRES_HOSTNAME}
       port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
+      user: ${POSTGRES_USERNAME}
       password: ${POSTGRES_PASSWORD}
       # https://node-postgres.com/features/ssl
       # you can set the sslmode configuration option via the `PGSSLMODE` environment variable
@@ -55,10 +55,6 @@ proxy:
     target: 'https://example.com'
     changeOrigin: true
 
-# Reference documentation http://backstage.io/docs/features/techdocs/configuration
-# Note: After experimenting with basic setup, use CI/CD to generate docs
-# and an external cloud storage when deploying TechDocs for production use-case.
-# https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
@@ -67,11 +63,9 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
   providers: {}
 
 scaffolder:
-  # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
   import:
